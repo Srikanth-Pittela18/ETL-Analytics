@@ -1,34 +1,18 @@
-import express from "express";
-import cors from "cors";
-import helmet from "helmet";
-import dotenv from "dotenv";
-import session from "express-session";
-import passport from "passport";
-import authRoutes from "./routes/auth.routes.js";
-import "./config/passport.js";
+import express from 'express';
+import dotenv from 'dotenv';
+import authRoutes from './routes/auth.routes.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
  
 dotenv.config();
  
 const app = express();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
  
-// Middleware
-app.use(helmet());
-app.use(cors({
-  origin: "http://localhost:3000", // allow frontend
-  credentials: true,
-}));
-app.use(express.json());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.urlencoded({ extended: true }));
  
-// Routes
-app.use("/auth", authRoutes);
+app.use('/auth', authRoutes);
  
 export default app;

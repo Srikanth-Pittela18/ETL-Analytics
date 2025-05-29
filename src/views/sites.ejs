@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Select a Site</title></head>
+<body>
+<h1>Select a Site to Monitor</h1>
+<form method="POST" action="/auth/sites">
+<select name="site">
+<% sites.forEach(site => { %>
+<option value="<%= site %>"><%= site %></option>
+<% }); %>
+</select>
+<button type="submit">Select</button>
+</form>
+</body>
+</html>
