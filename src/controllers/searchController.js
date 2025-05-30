@@ -12,7 +12,6 @@ export async function fetchAndStore(req, res) {
     const connection = await pool.getConnection();
  
     try {
-      // MySQL supports INSERT ... ON DUPLICATE KEY UPDATE for upsert
       const sql = `
         INSERT INTO search_metrics (date, page, clicks, impressions, ctr, position)
         VALUES (?, ?, ?, ?, ?, ?)

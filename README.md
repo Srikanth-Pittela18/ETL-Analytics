@@ -7,9 +7,9 @@ A modular ETL pipeline built with Node.js that extracts data from Google APIs vi
 
 ---
 
-## 1️⃣ Google OAuth Setup and `.env` Configuration
+## Google OAuth Setup and `.env` Configuration
 
-### 🔐 Create OAuth Credentials:
+###  Create OAuth Credentials:
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/).
 2. Create a project → Navigate to **APIs & Services > Credentials**.
@@ -17,9 +17,9 @@ A modular ETL pipeline built with Node.js that extracts data from Google APIs vi
 4. Choose **Desktop App** or **Web Application**.
 5. Download `credentials.json`.
 
-📁 Place `credentials.json` inside a `config/` folder in your project root.
+## Place `credentials.json` inside a `config/` folder in your project root.
 
-### ⚙️ Create `.env` File:
+###  Create `.env` File:
 
 ```env
 # Google OAuth
@@ -48,41 +48,41 @@ docker run -d --hostname rabbit-host --name rabbitmq \
 rabbitmq:3-management
 
 Run ETL Phases
-📥 Extract Phase
+## Extract Phase
 bash
 Copy
 Edit
 node extract/extract.js
 Fetches data using Google OAuth 2.0
 
-🧪 Transform Phase
+## Transform Phase
 bash
 Copy
 Edit
 node transform/transform.js
 Cleans and transforms extracted data
 
-📤 Load Phase
+## Load Phase
 bash
 Copy
 Edit
 node load/load.js
 Sends data to the destination (e.g., DB or ClickHouse)
 
-🧵 Optional: Run RabbitMQ Worker
+## Optional: Run RabbitMQ Worker
 bash
 Copy
 Edit
 node queue/worker.js
 Listens to queue events and triggers ETL automatically
 
-✅ Install Dependencies
+## Install Dependencies
 bash
 Copy
 Edit
 npm install
-📦 Tech Stack: Node.js, RabbitMQ, Google OAuth 2.0, dotenv, axios/fetch, optional ClickHouse
-🧱 Project Structure: Organized into extract/, transform/, load/, queue/, and config/
+## Tech Stack: Node.js, RabbitMQ, Google OAuth 2.0, dotenv, axios/fetch, optional ClickHouse
+## Project Structure: Organized into extract/, transform/, load/, queue/, and config/
 
 Your ETL pipeline is now ready to run and impress 🚀
 

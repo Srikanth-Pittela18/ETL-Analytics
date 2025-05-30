@@ -9,7 +9,6 @@ const tokenPath = path.resolve(__dirname, '../../tokens.json');
 const sitePath = path.resolve(__dirname, '../../selected-site.json');
  
 export async function fetchSearchAnalytics() {
-  // Load tokens and selected site from files
   const tokens = JSON.parse(await fs.readFile(tokenPath, 'utf8'));
   const { site } = JSON.parse(await fs.readFile(sitePath, 'utf8'));
  
