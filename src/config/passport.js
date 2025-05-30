@@ -12,7 +12,6 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
     (accessToken, refreshToken, profile, done) => {
-      // Mock user storage: you can integrate DB here
       const user = {
         id: profile.id,
         displayName: profile.displayName,
@@ -24,7 +23,7 @@ passport.use(
 );
  
 passport.serializeUser((user, done) => {
-  done(null, user); // store full user in session
+  done(null, user);
 });
  
 passport.deserializeUser((user, done) => {

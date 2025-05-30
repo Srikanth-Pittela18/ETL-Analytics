@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Select Site</title>
+</head>
+
+<body>
+    <h1>Select a site</h1>
+    <ul>
+        <% sites?.forEach(site=> { %>
+            <li>
+                <form action="/auth/select-site" method="POST">
+                    <input type="hidden" name="site" value="<%= site.siteUrl %>" />
+                    <button type="submit">
+                        <%= site.siteUrl %>
+                    </button>
+                </form>
+            </li>
+            <% }); %>
+    </ul>
+</body>
+
+</html>
